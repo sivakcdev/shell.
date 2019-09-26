@@ -22,7 +22,14 @@ pipeline {
                 sh 'docker run -dt --name shivakc ubuntu:v1.0.0 /bin/bash '
             }
         }
-		
+		stage('creating custom images') {
+            steps {
+                sh 'docker commit shivakc  ubuntu:v1.0.0'
+            }
+        }
+	
+
+	
     }
 	
 }
