@@ -19,7 +19,7 @@ pipeline {
         }
 		stage('Creating Container') {
             steps {
-                sh 'docker run -dt --name shivakc ubuntu:v1.0.0 /bin/bash '
+                sh 'docker run -dt --name kc ubuntu:v1.0.0 /bin/bash '
             }
         }
 		stage('creating custom images') {
