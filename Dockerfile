@@ -1,3 +1,3 @@
-FROM:MYSQL
+FROM:Ubuntu
 CMD:echo hello world
 
