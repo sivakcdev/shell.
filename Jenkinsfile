@@ -12,10 +12,17 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deploy') {
+        stage('Docker') {
             steps {
-                sh 'scp -r /var/lib/jenkins/workspace/shell/target/*.jar root@two:/root/apache-tomcat-8.5.46/webapps'
+                sh 'docker build -t ubuntu:v1.0.0 .'
             }
         }
+		stage('Creating Container') {
+            steps {
+                sh 'docker run -dt --name shivakc ubuntu:v1.0.0 /bin/bash '
+            }
+        }
+		
     }
+	
 }
